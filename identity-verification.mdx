@@ -1,0 +1,55 @@
+---
+title: "Identity Verification"
+description: "Authenticate users so the agent can act on their behalf"
+---
+
+Identity Verification allows the Ourguide agent to know who the user is and perform personalized actions on their behalf.
+
+## Why Identity Verification?
+
+Without identity verification, the agent can only answer general questions. With it, the agent can:
+
+- Look up the user's orders, subscriptions, or account details
+- Perform actions specific to that user
+- Provide personalized responses
+
+## Setup
+
+### 1. Generate a User Token
+
+On your backend, generate a signed token for the authenticated user:
+
+```javascript
+const jwt = require("jsonwebtoken");
+
+function generateOurguideToken(user) {
+  return jwt.sign(
+    {
+      userId: user.id,
+      email: user.email,
+      name: user.name,
+    },
+    process.env.OURGUIDE_SECRET_KEY,
+    { expiresIn: "1h" }
+  );
+}
+```
+
+### 2. Pass the Token to the Widget
+
+```html
+<script
+  src="https://api.ourguide.com/static/ourguide-widget.js"
+  data-api-url="https://api.ourguide.com"
+  data-product-id="YOUR_PRODUCT_ID"
+  data-user-token="GENERATED_USER_TOKEN"
+></script>
+```
+
+### 3. Configure in Dashboard
+
+Go to **Identity Verification** in your dashboard and add your secret key. Ourguide will verify the token on each request.
+
+<Warning>
+  Never expose your secret key on the client side. Always generate tokens on your backend.
+</Warning>

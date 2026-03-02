@@ -1,0 +1,50 @@
+---
+title: "Workflows"
+description: "Create guided multi-step flows for complex tasks"
+---
+
+Workflows let you define structured, multi-step interactions for complex tasks that need a specific sequence of actions.
+
+## When to Use Workflows
+
+Use workflows when:
+
+- A task has multiple steps that must happen in order
+- You need to collect several pieces of information
+- The process has branching logic (if X, then do Y)
+
+## Creating a Workflow
+
+1. Go to **Workflows** in your dashboard
+2. Click **Create Workflow**
+3. Define your steps:
+
+```yaml Example: Refund Request Workflow
+name: "Process Refund"
+trigger: "User asks for a refund"
+steps:
+  - collect:
+      field: "order_id"
+      prompt: "What is your order number?"
+  - action:
+      name: "Look up order"
+      endpoint: "/orders/{order_id}"
+  - condition:
+      if: "order.status == 'delivered'"
+      then: "continue"
+      else: "Sorry, we can only refund delivered orders."
+  - action:
+      name: "Process refund"
+      endpoint: "/orders/{order_id}/refund"
+  - respond: "Your refund has been processed! You'll receive it in 3-5 business days."
+```
+
+## Workflow Components
+
+| Component | Purpose |
+|---|---|
+| **Collect** | Ask the user for information |
+| **Action** | Call an API endpoint |
+| **Condition** | Branch based on data |
+| **Respond** | Send a message to the user |
+| **Handoff** | Transfer to a human agent |

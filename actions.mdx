@@ -1,0 +1,40 @@
+---
+title: "Actions"
+description: "Enable agent capabilities to perform tasks"
+---
+
+Actions define what your Ourguide agent can do. Each action maps to an API endpoint or a built-in capability.
+
+## Built-in Actions
+
+Ourguide comes with several built-in actions:
+
+| Action | Description |
+|---|---|
+| **Answer Questions** | Responds using your Knowledge Base |
+| **Handoff to Human** | Escalates to a live support agent |
+| **Collect Information** | Gathers user details via a form |
+
+## Custom Actions
+
+Custom actions let the agent call your API endpoints. To create one:
+
+1. Go to **Actions** in your dashboard
+2. Click **Add Action**
+3. Configure the action:
+   - **Name** — What the action is called (e.g., "Check Order Status")
+   - **Description** — When the agent should use this action
+   - **Endpoint** — The API endpoint to call
+   - **Parameters** — What data to send
+
+## Action Triggers
+
+The agent decides when to use an action based on:
+
+- The user's message intent
+- The action's description
+- Available context (user identity, conversation history)
+
+<Tip>
+  Write clear, specific action descriptions. The better the description, the more accurately the agent will trigger the action.
+</Tip>

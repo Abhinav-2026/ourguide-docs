@@ -1,0 +1,55 @@
+---
+title: "OpenAPI Auth"
+description: "Configure authentication for your API endpoints"
+---
+
+When Ourguide's agent calls your API, it needs to authenticate. We support several auth methods.
+
+## Supported Methods
+
+### API Key
+
+Pass an API key as a header:
+
+```yaml
+securitySchemes:
+  apiKey:
+    type: apiKey
+    in: header
+    name: X-API-Key
+```
+
+### Bearer Token
+
+Use a bearer token in the Authorization header:
+
+```yaml
+securitySchemes:
+  bearer:
+    type: http
+    scheme: bearer
+    bearerFormat: JWT
+```
+
+### JWT Forward
+
+Forward the user's JWT token from identity verification directly to your API. This allows your API to know which user is making the request.
+
+```yaml
+securitySchemes:
+  jwtForward:
+    type: http
+    scheme: bearer
+    x-ourguide-forward: true
+```
+
+## Configuration
+
+1. Go to **API Integration > Auth** in your dashboard
+2. Select your auth method
+3. Enter your credentials (API key, secret, etc.)
+4. Test the connection
+
+<Warning>
+  API keys and secrets are encrypted and stored securely. They are never exposed to end users.
+</Warning>
