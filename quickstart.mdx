@@ -1,19 +1,17 @@
 ---
 title: "Quickstart"
-description: "Get Ourguide live on your site in 5 minutes"
+description: "Get your agent live in 5 minutes"
 ---
 
-## 1. Get your Product ID
+## 1. Copy your script tag
 
-Sign up at the [Ourguide Dashboard](https://dashboard.ourguide.com) and create a new product. Copy your **Product ID** from the settings page.
+Go to [app.ourguide.com/deploy](https://app.ourguide.com/deploy) and copy your script tag.
 
-## 2. Add the widget to your site
-
-Choose your preferred integration method:
+## 2. Add to your site
 
 <CodeGroup>
 
-```html Script Tag
+```html HTML
 <script
   src="https://api.ourguide.com/static/ourguide-widget.js"
   data-api-url="https://api.ourguide.com"
@@ -21,10 +19,10 @@ Choose your preferred integration method:
 ></script>
 ```
 
-```jsx React
+```jsx React / Next.js
 import { OurguideWidget } from "@ourguide/react";
 
-function App() {
+export default function App() {
   return (
     <OurguideWidget
       apiUrl="https://api.ourguide.com"
@@ -34,43 +32,52 @@ function App() {
 }
 ```
 
+```vue Vue
+<template>
+  <OurguideWidget
+    api-url="https://api.ourguide.com"
+    product-id="YOUR_PRODUCT_ID"
+  />
+</template>
+
+<script setup>
+import { OurguideWidget } from "@ourguide/vue";
+</script>
+```
+
 </CodeGroup>
 
 <Warning>
   Replace `YOUR_PRODUCT_ID` with the actual Product ID from your dashboard.
 </Warning>
 
-## 3. Add knowledge
+## 3. Configure your agent
 
-Go to the **Knowledge Base** section in your dashboard and add sources:
+In the dashboard, set your agent name and instructions. Test responses in the live preview.
 
-- **Website** — Enter your site URL to crawl and index
-- **Files** — Upload PDFs, docs, or text files
-- **Notion** — Connect your Notion workspace
+## 4. Add knowledge (optional)
 
-The agent will learn from these sources and use them to answer questions.
+In the [Knowledge Base](/knowledge-base), upload PDFs, crawl your website, or connect Notion.
 
-## 4. Test the widget
+## 5. Connect your API (optional)
 
-Open your site in a browser. You should see the Ourguide chat widget in the bottom-right corner. Try asking it a question about your product.
-
-## 5. Monitor conversations
-
-Go to the **Activity** page in your dashboard to see live conversations, review agent responses, and improve your knowledge base.
+In [API Integration](/api-integration), upload your OpenAPI spec, configure auth, and select endpoints.
 
 ## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="Knowledge Base" icon="book" href="/knowledge-base">
-    Add more sources and fine-tune responses.
-  </Card>
-  <Card title="API Integration" icon="plug" href="/api-integration">
-    Let the agent take actions via your API.
-  </Card>
   <Card title="Identity Verification" icon="shield-halved" href="/identity-verification">
-    Authenticate users so the agent can act on their behalf.
+    Authenticate users for personalized experiences
   </Card>
-  <Card title="Workflows" icon="diagram-project" href="/workflows">
-    Create guided multi-step flows.
+  <Card title="OpenAPI Authentication" icon="key" href="/openapi-auth">
+    Configure API auth (JWT Forward for user actions)
   </Card>
 </CardGroup>
+
+## Need Help?
+
+Running into issues or want our engineers to customize Ourguide for your use case?
+
+<Card title="Book a Demo" icon="calendar" href="https://ourguide.com/demo">
+  Talk to our team and get a personalized walkthrough.
+</Card>
