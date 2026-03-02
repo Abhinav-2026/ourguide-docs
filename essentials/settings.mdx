@@ -1,0 +1,61 @@
+---
+title: "Settings"
+description: "Customize the look and feel of your documentation"
+---
+
+## Global Settings
+
+Your `docs.json` file controls the global settings for your documentation site.
+
+### Colors
+
+Customize your brand colors:
+
+```json
+{
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#4ADE80",
+    "dark": "#16A34A"
+  }
+}
+```
+
+### Logo
+
+Add your company logo for light and dark modes:
+
+```json
+{
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  }
+}
+```
+
+### Favicon
+
+Set your browser tab icon:
+
+```json
+{
+  "favicon": "/favicon.svg"
+}
+```
+
+## Theme
+
+Mintlify supports multiple themes. Set your theme in `docs.json`:
+
+```json
+{
+  "theme": "venus"
+}
+```
+
+Available themes: `venus`, `quill`, `prism`
+
+<Info>
+  For the full list of configuration options, see the [Mintlify docs](https://mintlify.com/docs/settings/global).
+</Info>
