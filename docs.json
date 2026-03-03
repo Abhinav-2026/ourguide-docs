@@ -3,11 +3,11 @@
   "theme": "mint",
   "name": "Ourguide",
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg",
+    "light": "/logo/logo.jpg",
+    "dark": "/logo/logo.jpg",
     "href": "https://ourguide.mintlify.app"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo/logo.jpg",
   "colors": {
     "primary": "#16A34A",
     "light": "#4ADE80",
@@ -39,6 +39,7 @@
              "react-native",
              "flutter",
              "multi-language-support",
+             "customization",
              "identity-verification",
              "event-callbacks",
              "deploy"
@@ -59,13 +60,15 @@
             "pages": [
               "knowledge-base",
               "files",
-              "website"
+              "website",
+              "notion"
             ]
           },
           {
             "group": "Integration",
             "pages": [
               "integration",
+              "api-integration",
               "envoy-cli",
               {
                 "group": "Server-Side Tools",
