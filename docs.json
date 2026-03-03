@@ -30,7 +30,7 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["introduction", "quickstart", "ourguide-docs-mcp", "embed-widget", "event-callbacks", "deploy"]
+            "pages": ["introduction", "quickstart", "ourguide-docs-mcp", "embed-widget", "event-callbacks", "deploy", "sandbox"]
           },
           {
             "group": "Core Features",
