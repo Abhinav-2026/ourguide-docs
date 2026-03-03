@@ -29,7 +29,7 @@ Identity verification lets your agent know who the user is — enabling personal
 
 ## 1. Get Your Secret
 
-Go to [app.ourguide.com/deploy](https://app.ourguide.com/deploy) → copy **Verification Secret**.
+Go to [dashboard.ourguide.ai/deploy](https://dashboard.ourguide.ai/deploy) → copy **Verification Secret**.
 
 Add to your backend environment:
 
@@ -126,7 +126,7 @@ function App() {
   return (
     <OurguideWidget
       productId="YOUR_PRODUCT_ID"
-      apiUrl="https://api.ourguide.com"
+      apiUrl="https://api.ourguide.ai"
       getIdentityToken={async () => {
         const res = await fetch('/api/ourguide-token');
         const { token } = await res.json();

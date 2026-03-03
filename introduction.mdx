@@ -14,6 +14,9 @@ Ourguide is an embeddable AI agent that answers questions, takes actions, and kn
   <Card title="Identity Verification" icon="shield-halved" href="/identity-verification">
     Authenticate your users
   </Card>
+  <Card title="Ourguide Docs MCP" icon="robot" href="/ourguide-docs-mcp">
+    AI-assisted integration
+  </Card>
 </CardGroup>
 
 ## Installation
@@ -24,8 +27,8 @@ Add the Ourguide widget to your site with a single script tag:
 
 ```html Script Tag
 <script
-  src="https://api.ourguide.com/static/ourguide-widget.js"
-  data-api-url="https://api.ourguide.com"
+  src="https://api.ourguide.ai/static/ourguide-widget.js"
+  data-api-url="https://api.ourguide.ai"
   data-product-id="YOUR_PRODUCT_ID"
 ></script>
 ```
@@ -36,7 +39,7 @@ import { OurguideWidget } from "@ourguide/react";
 export default function App() {
   return (
     <OurguideWidget
-      apiUrl="https://api.ourguide.com"
+      apiUrl="https://api.ourguide.ai"
       productId="YOUR_PRODUCT_ID"
     />
   );
@@ -58,16 +61,16 @@ export default function App() {
 
 <Steps>
   <Step title="Embed">
-    Add the script tag or React component to your site.
+    Add the script tag to your site.
   </Step>
   <Step title="Configure">
-    Set instructions and add knowledge in the Ourguide dashboard.
+    Set instructions and add knowledge in the [Sandbox](/sandbox).
   </Step>
   <Step title="Integrate">
-    Connect your API via OpenAPI spec or MCP.
+    Connect your API via [OpenAPI spec](/openapi) or [MCP](/mcp-servers).
   </Step>
   <Step title="Deploy">
-    Monitor conversations in the Activity dashboard.
+    Monitor conversations in [Activity](/activity).
   </Step>
 </Steps>
 

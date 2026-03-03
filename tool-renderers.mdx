@@ -43,7 +43,7 @@ function App() {
   return (
     <OurguideCopilot
       productId="YOUR_PRODUCT_ID"
-      apiUrl="https://api.ourguide.com"
+      apiUrl="https://api.ourguide.ai"
       toolRenderers={{
         query_analytics_chart: MyChart,
         query_citation_chart: MyChart,
@@ -117,7 +117,7 @@ function AnalyticsChart({ result }: { result: unknown; status: string }) {
 // Use the same renderer for multiple chart tools
 <OurguideCopilot
   productId="YOUR_PRODUCT_ID"
-  apiUrl="https://api.ourguide.com"
+  apiUrl="https://api.ourguide.ai"
   toolRenderers={{
     query_analytics_chart: AnalyticsChart,
     query_citation_chart: AnalyticsChart,

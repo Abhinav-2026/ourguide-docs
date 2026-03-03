@@ -5,7 +5,7 @@ description: "Get your agent live in 5 minutes"
 
 ## 1. Copy your script tag
 
-Go to [app.ourguide.com/deploy](https://app.ourguide.com/deploy) and copy your script tag.
+Go to [dashboard.ourguide.ai/deploy](https://dashboard.ourguide.ai/deploy) and copy your script tag.
 
 ## 2. Add to your site
 
@@ -13,8 +13,8 @@ Go to [app.ourguide.com/deploy](https://app.ourguide.com/deploy) and copy your s
 
 ```html HTML
 <script
-  src="https://api.ourguide.com/static/ourguide-widget.js"
-  data-api-url="https://api.ourguide.com"
+  src="https://dashboard.ourguide.ai/static/ourguide-widget.js"
+  data-api-url="https://dashboard.ourguide.ai"
   data-product-id="YOUR_PRODUCT_ID"
 ></script>
 ```
@@ -25,7 +25,7 @@ import { OurguideWidget } from "@ourguide/react";
 export default function App() {
   return (
     <OurguideWidget
-      apiUrl="https://api.ourguide.com"
+      apiUrl="https://dashboard.ourguide.ai"
       productId="YOUR_PRODUCT_ID"
     />
   );
@@ -35,7 +35,7 @@ export default function App() {
 ```vue Vue
 <template>
   <OurguideWidget
-    api-url="https://api.ourguide.com"
+    api-url="https://dashboard.ourguide.ai"
     product-id="YOUR_PRODUCT_ID"
   />
 </template>
@@ -53,7 +53,7 @@ import { OurguideWidget } from "@ourguide/vue";
 
 ## 3. Configure your agent
 
-In the dashboard, set your agent name and instructions. Test responses in the live preview.
+In [Sandbox](/sandbox), set your agent name and instructions. Test responses in the live preview.
 
 ## 4. Add knowledge (optional)
 

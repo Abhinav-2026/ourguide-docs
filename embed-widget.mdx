@@ -12,8 +12,8 @@ Choose your preferred installation method:
 
 ```html Script Tag
 <script
-  src="https://api.ourguide.com/static/ourguide-widget.js"
-  data-api-url="https://api.ourguide.com"
+  src="https://api.ourguide.ai/static/ourguide-widget.js"
+  data-api-url="https://api.ourguide.ai"
   data-product-id="YOUR_PRODUCT_ID"
   data-agent-name="Your Agent Name"
 ></script>
@@ -25,7 +25,7 @@ import { OurguideWidget } from "@ourguide/react";
 export default function App() {
   return (
     <OurguideWidget
-      apiUrl="https://api.ourguide.com"
+      apiUrl="https://api.ourguide.ai"
       productId="YOUR_PRODUCT_ID"
       agentName="Your Agent Name"
     />
@@ -39,14 +39,14 @@ export default function App() {
 
 | Attribute          | Required | Description                              |
 | ------------------ | -------- | ---------------------------------------- |
-| `data-api-url`     | Yes      | `https://api.ourguide.com`               |
+| `data-api-url`     | Yes      | `https://api.ourguide.ai`               |
 | `data-product-id`  | Yes      | Your product ID from dashboard           |
 | `data-agent-name`  | No       | Display name (defaults to "Assistant")   |
 | `data-variant`     | No       | `widget` (default) or `copilot`          |
 
 ### Find Your Product ID
 
-1. Go to [app.ourguide.com/deploy](https://app.ourguide.com/deploy)
+1. Go to [dashboard.ourguide.ai/deploy](https://dashboard.ourguide.ai/deploy)
 2. Copy your Product ID
 
 ---
@@ -88,7 +88,7 @@ window.ourguide('setIdentityTokenFetcher', async () => {
 
 ```jsx React SDK
 <OurguideWidget
-  apiUrl="https://api.ourguide.com"
+  apiUrl="https://api.ourguide.ai"
   productId="YOUR_PRODUCT_ID"
   identityTokenFetcher={async () => {
     const res = await fetch('/api/ourguide-token');
@@ -118,7 +118,7 @@ window.ourguide('resetUser');
 
 ```jsx React SDK
 <OurguideWidget
-  apiUrl="https://api.ourguide.com"
+  apiUrl="https://api.ourguide.ai"
   productId="YOUR_PRODUCT_ID"
   identity={{ token: 'jwt-from-your-backend', name: 'John Doe' }}
 />
@@ -151,7 +151,7 @@ window.ourguide('registerTools', {
 
 ```jsx React SDK
 <OurguideWidget
-  apiUrl="https://api.ourguide.com"
+  apiUrl="https://api.ourguide.ai"
   productId="YOUR_PRODUCT_ID"
   tools={{
     navigateToPage: async ({ path }) => {
@@ -191,7 +191,7 @@ window.addEventListener('popstate', () => {
 
 ```jsx React SDK
 <OurguideWidget
-  apiUrl="https://api.ourguide.com"
+  apiUrl="https://api.ourguide.ai"
   productId="YOUR_PRODUCT_ID"
   context={{ itemId: 'abc-123', page: 'settings' }}
 />
@@ -217,7 +217,7 @@ window.ourguide('onToolResult', (toolName, result) => {
 
 ```jsx React SDK
 <OurguideWidget
-  apiUrl="https://api.ourguide.com"
+  apiUrl="https://api.ourguide.ai"
   productId="YOUR_PRODUCT_ID"
   onToolResult={(toolName, result) => {
     if (toolName === 'propose_revision') {
@@ -335,9 +335,9 @@ In Next.js, use `onLoad` to ensure the script has loaded before calling `window.
 
 ```jsx
 <Script
-  src="https://api.ourguide.com/static/ourguide-widget.js"
+  src="https://api.ourguide.ai/static/ourguide-widget.js"
   data-product-id="YOUR_PRODUCT_ID"
-  data-api-url="https://api.ourguide.com"
+  data-api-url="https://api.ourguide.ai"
   strategy="afterInteractive"
   onLoad={() => {
     window.ourguide('registerToolRenderers', { ... });
