@@ -88,27 +88,25 @@ The status appears above the input box with a spinner while non-empty, and disap
 
 ## How It Works
 
-```
-1. User asks       — The message is sent to the agent
-2. Agent picks the tool — Based on the tool definition
-3. Widget runs the handler — Executes your registered function client-side
-4. Result flows back — The agent sees the return value and responds
+```mermaid
+sequenceDiagram
+    participant User
+    participant OurguideCopilot
+    participant OurguideBackend as Ourguide Backend
+
+    User->>OurguideCopilot: "Export this list as CSV"
+    OurguideCopilot->>OurguideBackend: POST /chat/message
+    OurguideBackend-->>OurguideCopilot: SSE tool_call (exportListToCSV)
+    OurguideCopilot->>OurguideCopilot: Runs registered handler in browser
+    OurguideCopilot->>OurguideBackend: Tool result
+    OurguideBackend-->>OurguideCopilot: SSE assistant message
+    OurguideCopilot->>User: "Done — exported 142 rows"
 ```
 
-**Example flow for "Export this list as CSV":**
-
-```
-User                  Widget               Ourguide Backend
- │                       │                        │
- │── "Export as CSV" ───→│                        │
- │                       │── POST /chat/message ──→│
- │                       │←── SSE tool_call ───────│
- │                       │  (exportListToCSV)       │
- │                  [runs handler in browser]        │
- │                       │── Tool result ──────────→│
- │                       │←── SSE assistant message─│
- │←── "Done — exported 142 rows" ─────────────────  │
-```
+1. **User asks** — The message is sent to the agent
+2. **Agent picks the tool** — Based on the tool definition
+3. **Widget runs the handler** — Executes your registered function client-side
+4. **Result flows back** — The agent sees the return value and responds
 
 <CardGroup cols={2}>
   <Card title="Tool Renderers" icon="paintbrush" href="/tool-renderers">
