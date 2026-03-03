@@ -1,50 +1,70 @@
 ---
 title: "Workflows"
-description: "Create guided multi-step flows for complex tasks"
+description: "Create guided multi-step flows"
 ---
 
-Workflows let you define structured, multi-step interactions for complex tasks that need a specific sequence of actions.
+Workflows guide users through complex tasks with a structured sequence of steps.
 
-## When to Use Workflows
+## Examples
 
-Use workflows when:
+- **Onboarding** — Walk new users through setup
+- **Returns** — Collect order number, reason, process request
+- **Troubleshooting** — Diagnostic steps for common issues
 
-- A task has multiple steps that must happen in order
-- You need to collect several pieces of information
-- The process has branching logic (if X, then do Y)
+## Create a Workflow
 
-## Creating a Workflow
+<Steps>
+  <Step title="Navigate to Workflows">
+    Go to [Actions](https://app.ourguide.com/actions) in your dashboard.
+  </Step>
+  <Step title="Create a new workflow">
+    Click **Create Journey**.
+  </Step>
+  <Step title="Fill in details">
+    | Field           | Description                                                        |
+    | --------------- | ------------------------------------------------------------------ |
+    | **Name**        | Short name (e.g., "Return Request")                                |
+    | **Description** | When to trigger (e.g., "Use when customer wants to return a product") |
+  </Step>
+  <Step title="Add steps">
+    For each step, define:
+    - **Step text** — What to ask or tell the user
+    - **Tool** (optional) — Action to execute at this step
+  </Step>
+  <Step title="Save">
+    Save your workflow and test it in the Sandbox.
+  </Step>
+</Steps>
 
-1. Go to **Workflows** in your dashboard
-2. Click **Create Workflow**
-3. Define your steps:
+## Example: Return Request
 
-```yaml Example: Refund Request Workflow
-name: "Process Refund"
-trigger: "User asks for a refund"
-steps:
-  - collect:
-      field: "order_id"
-      prompt: "What is your order number?"
-  - action:
-      name: "Look up order"
-      endpoint: "/orders/{order_id}"
-  - condition:
-      if: "order.status == 'delivered'"
-      then: "continue"
-      else: "Sorry, we can only refund delivered orders."
-  - action:
-      name: "Process refund"
-      endpoint: "/orders/{order_id}/refund"
-  - respond: "Your refund has been processed! You'll receive it in 3-5 business days."
+```text
+Step 1: "What's the order number for the item you'd like to return?"
+
+Step 2: "Which item would you like to return?"
+        → Tool: getOrderDetails
+
+Step 3: "What's the reason for the return?"
+
+Step 4: "Done! You'll receive a return label within 24 hours."
+        → Tool: createReturnLabel
 ```
 
-## Workflow Components
+## How It Works
 
-| Component | Purpose |
-|---|---|
-| **Collect** | Ask the user for information |
-| **Action** | Call an API endpoint |
-| **Condition** | Branch based on data |
-| **Respond** | Send a message to the user |
-| **Handoff** | Transfer to a human agent |
+1. User question matches workflow description
+2. Agent starts the flow
+3. User responds to each step
+4. Optional tools execute at configured steps
+5. Workflow completes
+
+<Info>
+  Users can exit anytime by asking something else.
+</Info>
+
+## Tips
+
+- **Write clear descriptions** so the agent knows when to trigger the workflow
+- **Keep steps conversational**, not robotic
+- **End with confirmation** of what happened
+- **Test in Sandbox** before deploying

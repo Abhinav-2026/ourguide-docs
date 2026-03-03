@@ -1,40 +1,47 @@
 ---
 title: "Actions"
-description: "Enable agent capabilities to perform tasks"
+description: "Configure what your agent can do"
 ---
 
-Actions define what your Ourguide agent can do. Each action maps to an API endpoint or a built-in capability.
+Actions are capabilities you enable for your agent. Go to the [Actions](https://app.ourguide.com/actions) page in your dashboard to manage them.
 
-## Built-in Actions
+## Types
 
-Ourguide comes with several built-in actions:
+| Type          | Source                | Example                               |
+| ------------- | --------------------- | ------------------------------------- |
+| **API Tools** | Your OpenAPI spec     | `getOrderStatus`, `createTicket`      |
+| **MCP Tools** | Connected MCP servers | Notion search, database queries       |
+| **Workflows** | You define them       | Onboarding flow, return request       |
 
-| Action | Description |
-|---|---|
-| **Answer Questions** | Responds using your Knowledge Base |
-| **Handoff to Human** | Escalates to a live support agent |
-| **Collect Information** | Gathers user details via a form |
+## Enabling Actions
 
-## Custom Actions
+1. **API Tools** — Check/uncheck individual endpoints from your OpenAPI spec
+2. **MCP Tools** — Toggle entire servers or individual tools
+3. **Workflows** — Enable/disable specific flows
 
-Custom actions let the agent call your API endpoints. To create one:
+## How the Agent Decides
 
-1. Go to **Actions** in your dashboard
-2. Click **Add Action**
-3. Configure the action:
-   - **Name** — What the action is called (e.g., "Check Order Status")
-   - **Description** — When the agent should use this action
-   - **Endpoint** — The API endpoint to call
-   - **Parameters** — What data to send
+The agent automatically chooses tools based on:
 
-## Action Triggers
-
-The agent decides when to use an action based on:
-
-- The user's message intent
-- The action's description
-- Available context (user identity, conversation history)
+- The user's question
+- Tool names and descriptions
+- Required parameters
 
 <Tip>
-  Write clear, specific action descriptions. The better the description, the more accurately the agent will trigger the action.
+  Good tool descriptions lead to better tool selection.
 </Tip>
+
+## Best Practices
+
+- **Start small** — Enable only what's needed, expand later
+- **Test in Sandbox** — Verify tools work before deploying
+- **Clear descriptions** — Help the agent understand when to use each tool
+
+<CardGroup cols={2}>
+  <Card title="OpenAPI" icon="plug" href="/openapi">
+    Set up API tools
+  </Card>
+  <Card title="Workflows" icon="diagram-project" href="/workflows">
+    Create guided flows
+  </Card>
+</CardGroup>
