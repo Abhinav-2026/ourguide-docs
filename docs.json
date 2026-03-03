@@ -36,10 +36,19 @@
             "group": "Core Features",
             "pages": [
               "knowledge-base",
+              "files",
+              "website",
+              "notion",
               "api-integration",
+              "integration",
+              "openapi",
+              "tool-renderers",
+              "mcp-servers",
+              "activity",
               "identity-verification",
               "actions",
-              "workflows"
+              "workflows",
+              "page-navigation"
             ]
           },
           {
@@ -50,24 +59,8 @@
             ]
           }
         ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": ["api-reference/introduction"]
-          },
-          {
-            "group": "Endpoints",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
-            ]
-          }
-        ]
       }
+
     ]
   },
   "footerSocials": {
